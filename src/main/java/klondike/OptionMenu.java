@@ -5,5 +5,6 @@ public enum OptionMenu {
     MenuBaraja,
     MenuListaPilas,
     MenuMoverCarta,
+    MenuMoverCartaBaraja,
     Exit;
 }

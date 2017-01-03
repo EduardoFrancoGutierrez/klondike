@@ -13,7 +13,6 @@ public enum NumbersCards {
     Fourth,
     Three,
     Two,
-    One,
     AS;
 
     

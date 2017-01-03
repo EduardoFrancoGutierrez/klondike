@@ -3,14 +3,19 @@ package klondike;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class IOS {
 
    
-    public void showTablero(Baraja baraja, Escaleras escalera){
-            
-            this.mostrarBaraja(baraja);
+    public void showTablero(List<Baraja> barajas, Escaleras escalera){
+
+        System.out.println();
+        System.out.println("************************** TABLERO *****************************");
+            this.mostrarBaraja(barajas);
             this.mostrarEscalera(escalera);
+            System.out.println("*****************************************************************");
+            System.out.println();
           //  lectura=this.showMenu();
            
     }
@@ -76,14 +81,23 @@ public class IOS {
             System.out.println();
         }
     }
-    public void mostrarBaraja(Baraja baraja){
-        int poscionMostrar=0;
-        if (baraja.getPosCartaMostrada()!=-1)
-            poscionMostrar=baraja.getPosCartaMostrada();
-        System.out.println(String.format("%1$-25s",0+".LIST"));
-        System.out.print(String.format("%1$-25s",baraja.getCards().get(poscionMostrar).toString()));
+    public void mostrarBaraja(List<Baraja> barajas){
+        for (int i=0; i<barajas.size();i++){
+            System.out.print(String.format("%1$-25s",i+".BARAJA"));
+        }
+        System.out.println();
+        for (Baraja baraja: barajas){
+            if (baraja!=null){
+                int poscionMostrar=0;
+                if (baraja.getPosCartaMostrada()!=-1)
+                    poscionMostrar=baraja.getPosCartaMostrada();
+                if ((baraja.getCards()!=null) && (baraja.getCards().size()>0))
+                    System.out.print(String.format("%1$-25s",baraja.getCards().get(poscionMostrar).toString()));
+            }
+        }
         System.out.println();
         System.out.println();
+        
     }
     
     public int opcionesMenuBaraja(){
@@ -93,7 +107,8 @@ public class IOS {
          System.out.println("0. Sacar la carta siguiente de la baraja");
          System.out.println("1. Mover la carta a una pila");
          System.out.println("2. Salir al menu principal");
-         System.out.println("8. Exit");
+         System.out.println("3. Mover la carta a una baraja");
+         System.out.println("4. Exit");
          lectura=this.leer();
         } while (lectura ==-1);
         return lectura;
@@ -106,7 +121,9 @@ public class IOS {
          System.out.println("Elige la operacion:");
          System.out.println("0. Mover la carta a una pila");
          System.out.println("1. Salir al menu principal");
-         System.out.println("8. Exit");
+         System.out.println("2. Dar la vuelta a la carta oculta");
+         System.out.println("3. Mover la carta a una baraja");
+         System.out.println("4. Exit");
          lectura=this.leer();
         } while (lectura ==-1);
         return lectura;
@@ -132,4 +149,19 @@ public class IOS {
         
     }
 
+    public int opcionesMenuMoverCartaABaraja(){
+        int lectura;
+        do{
+         System.out.println("Elige la operacion:");
+         System.out.println("1. Mover la carta a la 1º baraja de cartas");
+         System.out.println("2. Mover la carta a la 2º baraja de cartas");
+         System.out.println("3. Mover la carta a la 3º baraja de cartas");
+         System.out.println("4. Mover la carta a la 4º baraja de cartas");
+         System.out.println("5. Salir al menu principal");
+         System.out.println("6. Exit");
+         lectura=this.leer();
+        } while (lectura ==-1);
+        return lectura;
+        
+    }
 }

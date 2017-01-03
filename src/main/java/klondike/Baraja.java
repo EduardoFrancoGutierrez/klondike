@@ -50,6 +50,7 @@ public class Baraja {
         this.cards = cards;
     }
     
+    //funcion que mueve una carta a una lista de cartas destino
     public void moveCard(List<Card> origin, List<Card> destin, Card card){
         int index= origin.indexOf(card);
         destin.add(origin.get(index));
@@ -67,6 +68,7 @@ public class Baraja {
         }
         else{
             int posCartaSiguenteMostrada= this.posCartaMostrada+1; 
+            //si la posicion es igual al tamaño ha de volver a colocar ocultas las cartas
             if (posCartaSiguenteMostrada==this.size()){
                 this.ocultarCartas();
                 retorno=true;
