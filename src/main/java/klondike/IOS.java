@@ -8,11 +8,11 @@ import java.util.List;
 public class IOS {
 
    
-    public void showTablero(List<Baraja> barajas, Escaleras escalera){
+    public void showTablero(Baraja baraja, List<PilaFamiliaCartas> pilasFamily, Escaleras escalera){
 
         System.out.println();
         System.out.println("************************** TABLERO *****************************");
-            this.mostrarBaraja(barajas);
+            this.mostrarBarajas(baraja,pilasFamily );
             this.mostrarEscalera(escalera);
             System.out.println("*****************************************************************");
             System.out.println();
@@ -81,19 +81,23 @@ public class IOS {
             System.out.println();
         }
     }
-    public void mostrarBaraja(List<Baraja> barajas){
-        for (int i=0; i<barajas.size();i++){
-            System.out.print(String.format("%1$-25s",i+".BARAJA"));
+    public void mostrarBarajas(Baraja baraja,List<PilaFamiliaCartas> pilasFamily){
+        
+        int poscionMostrar=0;
+        if (baraja.getPosCartaMostrada()!=-1)
+            poscionMostrar=baraja.getPosCartaMostrada();
+        System.out.print(String.format("%1$-25s",0+".BARAJA"));
+        for (int i=0; i<pilasFamily.size();i++){
+            System.out.print(String.format("%1$-25s",i+1 +".BARAJA"));
         }
         System.out.println();
-        for (Baraja baraja: barajas){
-            if (baraja!=null){
-                int poscionMostrar=0;
-                if (baraja.getPosCartaMostrada()!=-1)
-                    poscionMostrar=baraja.getPosCartaMostrada();
-                if ((baraja.getCards()!=null) && (baraja.getCards().size()>0))
-                    System.out.print(String.format("%1$-25s",baraja.getCards().get(poscionMostrar).toString()));
-            }
+        System.out.print(String.format("%1$-25s",baraja.getCards().get(poscionMostrar).toString()));
+        for (PilaFamiliaCartas pila: pilasFamily){
+            poscionMostrar=0;
+            if (pila.getPosCartaMostrada()!=-1)
+                poscionMostrar=pila.getPosCartaMostrada();
+            if ((pila.getCards()!=null) && (pila.getCards().size()>0))
+                System.out.print(String.format("%1$-25s",pila.getCards().get(poscionMostrar).toString()));
         }
         System.out.println();
         System.out.println();
