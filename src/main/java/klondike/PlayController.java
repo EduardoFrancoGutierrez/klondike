@@ -4,270 +4,335 @@ import java.util.List;
 
 public class PlayController {
 
+    private Tablero tablero;
 
-    public  int controlMenus(Baraja baraja ,List<PilaFamiliaCartas> pilasFamily, Escaleras escalera, IOS ios){
-        int lectura=-1;
-        int pila=-1;
-        boolean origenBaraja=false;
-        boolean repetir=true;
-        OptionMenu menu= OptionMenu.MenuPrinicpal;
-        do{
-            //ios.showTablero(baraja, escalera);
+    private IOS ios;
+
+    private MoverCartaController moverCartaController;
+    
+    private MoverCartaAPaloDesdeEscaleraController moverCartaAPaloDesdeEscaleraController;
+    
+    private MoverCartaAPaloDesdeBarajaController moverCartaAPaloDesdeBarajaController;
+
+    public PlayController(Tablero tablero, IOS ios) {
+        super();
+        this.tablero = tablero;
+        this.ios = ios;
+        this.moverCartaController = new MoverCartaController();
+        this.moverCartaAPaloDesdeBarajaController = new MoverCartaAPaloDesdeBarajaController(tablero,ios);
+        this.moverCartaAPaloDesdeEscaleraController= new MoverCartaAPaloDesdeEscaleraController(tablero,ios);
+    }
+
+    public int controlDeGestionDeMenus() {
+        int lectura = -1;
+        boolean repetir = true;
+        OptionMenu menu = OptionMenu.MenuPrinicpal;
+        do {
+            // ios.showTablero(baraja, escalera);
             switch (menu) {
-                case MenuPrinicpal :
-                    menu=menuPrincipal(baraja,pilasFamily,escalera,ios);
-                    break;
-                case MenuBaraja:
-                    menu=controlBaraja(baraja,pilasFamily,escalera,ios);
-                    if ((menu== OptionMenu.MenuMoverCarta)||(menu==OptionMenu.MenuMoverCartaBaraja)){
-                        origenBaraja=true;
-                        
-                    }
-                    break;
-                case MenuListaPilas:
-                    menu=controlListaPilas(baraja,pilasFamily,escalera,ios);
-                    break;
-                case Exit:
-                    repetir=false;
-                    break;
-                case MenuMoverCartaBaraja:
-                    if (origenBaraja){
-                        Card card=baraja.getCards().get(baraja.getPosCartaMostrada());
-                        menu=controlMoverCartaBaraja(baraja,pilasFamily, escalera,ios,baraja.getCards(),card); 
-                    }
-                    else{
-                        int posicionPila=escalera.getPilaCartaSeleccionada();
-                        //obtengo la posicion de la carta
-                        int posicionCarta= escalera.getEscaleras().get(posicionPila).getPilaCartas().size()-1;
-                        //carta seleccionada para mover de una escalera seleccionada
-                        Card card =escalera.getEscaleras().get(posicionPila).getPilaCartas().get(posicionCarta);
-                        menu=controlMoverCartaBaraja(baraja,pilasFamily, escalera,ios , escalera.getEscaleras().get(posicionPila).getPilaCartas(),card);
-                    }
-                    origenBaraja=false;
-                    break;
-                case MenuMoverCarta:
-                    if (origenBaraja){
-                        //coge la carta del monton que esta mostrada
-                        Card card=baraja.getCards().get(baraja.getPosCartaMostrada());
-                        menu=controlMoverCarta(baraja,pilasFamily ,escalera,ios, card,baraja.getCards(),origenBaraja);
-                    }
-                    else{
-                        int posicionPila=escalera.getPilaCartaSeleccionada();
-                        //obtengo la posicion de la carta
-                        int posicionCarta= escalera.getEscaleras().get(posicionPila).getPilaCartas().size()-1;
-                        //carta seleccionada para mover de una escalera seleccionada
-                        Card card =escalera.getEscaleras().get(posicionPila).getPilaCartas().get(posicionCarta);
-                        menu=controlMoverCarta(baraja,pilasFamily ,escalera,ios, card, escalera.getEscaleras().get(posicionPila).getPilaCartas(),origenBaraja);
-                    }
-                    origenBaraja=false;
-                    break;
-                   
+            case MenuPrinicpal:
+                menu = menuPrincipal();
+                break;
+            case MenuBaraja:
+                menu = controlBaraja();
+                break;
+            case MenuEscaleras:
+                menu = controlEscaleras();
+                break;
+            case MenuMoverCartaAPalosDesdeBaraja:
+                menu = moverCartaAPaloDesdeBarajaController.controlMoverCartaAPalos(); 
+                break;
+            case MenuMoverCartaAPalosDesdeEscalera:
+                menu = this.moverCartaAPaloDesdeEscaleraController.controlMoverCartaAPalos();
+                break;
+            case MenuMoverCartaAEscaleraDesdeBaraja:
+                menu = this.moverCartaAPaloDesdeBarajaController.controlMoverCartaAEscalera();
+                break;    
+            case MenuMoverCartaAEscaleraDesdeEscalera:
+                 menu = this.moverCartaAPaloDesdeEscaleraController.controlMoverCartaAEscalera();
+                break;
+            case Exit:
+                repetir = false;
+                System.exit(0);
+                break;
+
             }
-            
-        }while (repetir);
+
+        } while (repetir);
         return lectura;
     }
-    
-    public  OptionMenu menuPrincipal (Baraja baraja ,List<PilaFamiliaCartas> pilasFamily, Escaleras escalera, IOS ios){
-        
-        int lectura=-1;
-        boolean repetir=true;
-        OptionMenu retorno=OptionMenu.MenuPrinicpal;
-        do{
-            ios.showTablero(baraja,pilasFamily, escalera);
-            lectura=ios.showMenu();
-            if (lectura==0){
-                retorno=OptionMenu.MenuBaraja;
-                repetir=false;
+
+    public OptionMenu menuPrincipal() {
+        int lectura = -1;
+        boolean repetir = true;
+        OptionMenu retorno = OptionMenu.MenuPrinicpal;
+        do {
+            ios.showTablero(tablero);
+            lectura = ios.showMenu();
+            if (lectura == 0) {
+                retorno = OptionMenu.MenuBaraja;
+                repetir = false;
+            } else if ((lectura > 0) && (lectura < 8)) {
+                this.ponerEscaleraSeleccionada(lectura);
+                retorno = OptionMenu.MenuEscaleras;
+                repetir = false;
             }
-            else if ((lectura>0)&&(lectura<8)){
-                int posicion=lectura-1;
-                if (escalera.getEscaleras().get(posicion).size()>0){
-                    retorno=OptionMenu.MenuListaPilas;
-                    escalera.setPilaCartaSeleccionada(posicion);
-                    repetir=false;
-                }
+            else if (lectura == 8) {
+                retorno = OptionMenu.Exit;
+                repetir = false;
             }
-        }while (repetir);
+        } while (repetir);
         return retorno;
     }
-    public  OptionMenu controlBaraja(Baraja baraja ,List<PilaFamiliaCartas> pilasFamily ,Escaleras escalera, IOS ios){
-        int lectura=-1;
-        boolean repetir=true;
-        OptionMenu retorno=OptionMenu.MenuPrinicpal;
-        do{
-            ios.showTablero(baraja,pilasFamily, escalera);
+
+    public OptionMenu controlBaraja() {
+        int lectura = -1;
+        boolean repetir = true;
+        OptionMenu retorno = OptionMenu.MenuPrinicpal;
+        do {
+            ios.showTablero(tablero);
             lectura = ios.opcionesMenuBaraja();
-            if (lectura == 0) {
-                if (!baraja.mostrarSiguienteCarta()){
+            switch (lectura) {
+                case 0:
+                    if (!tablero.getBaraja().mostrarSiguienteCarta()) {
+                        repetir = false;
+                    }
+                    break;
+                case 1:
+                    if ((tablero.getBaraja().size() > 0) && (tablero.getBaraja().getPosCartaMostrada() >= 0)) {
+                        retorno = OptionMenu.MenuMoverCartaAEscaleraDesdeBaraja;
+                        repetir = false;
+                    }
+                    break;
+                case 2:
+                    if (this.comprobarVisibleCartaEnBaraja()){
+                        retorno=OptionMenu.MenuMoverCartaAPalosDesdeBaraja;
+                        repetir=false;
+                    }
+                    break;
+                case 3:
+                    retorno = OptionMenu.MenuPrinicpal;
+                    repetir = false;
+                    break;
+                case 4:
+                    retorno= OptionMenu.Exit;
                     repetir=false;
-                }
-            }
-            else if (lectura==1){
-              //opcionesMenuMoverCarta
-                if ((baraja.size()>0) &&(baraja.getPosCartaMostrada()>=0)){
-                    retorno=OptionMenu.MenuMoverCarta;
-                    repetir=false;                
-                }
-            }
-            else if (lectura==2){
-                retorno=OptionMenu.MenuPrinicpal;
-                repetir=false; 
-            }
-            else if (lectura==3){
-               int pos= baraja.getPosCartaMostrada();
-               if (pos!=-1){
-                   Card card= baraja.getCards().get(pos);
-                           if (card.getVisible()){
-                               retorno=OptionMenu.MenuMoverCartaBaraja;
-                               repetir =false;
-                           }
-                   
-               }
-               
             }
             
         } while (repetir);
         return retorno;
     }
-    
-    public  OptionMenu controlListaPilas(Baraja baraja,List<PilaFamiliaCartas> pilasFamily , Escaleras escalera, IOS ios){
-        int lectura=-1;
-        boolean repetir=true;
-        OptionMenu retorno=OptionMenu.MenuPrinicpal;
-        do{
-            ios.showTablero(baraja,pilasFamily, escalera);
-            int escaleraSeleccionada=escalera.getPilaCartaSeleccionada();
-            //obtengo la posicion de la carta
-            int posicionCarta= escalera.getEscaleras().get(escaleraSeleccionada).getPilaCartas().size()-1;
-            //carta seleccionada para mover de una escalera seleccionada
-            Card card =escalera.getEscaleras().get(escaleraSeleccionada).getPilaCartas().get(posicionCarta); 
-            lectura=ios.opcionesMenuListaPila();
-            if (lectura==0){
-                if (card.getVisible()){
-                    retorno= OptionMenu.MenuMoverCarta;
-                    repetir =false;
+
+    public OptionMenu controlEscaleras() {
+        int lectura = -1;
+        boolean repetir = true;
+        OptionMenu retorno = OptionMenu.MenuPrinicpal;
+        do {
+            ios.showTablero(tablero);
+            lectura = ios.opcionesMenuEscalera();
+            Card card = this.cartaSeleccionadaDesdeEscalera();
+            switch (lectura) {
+            case 0:
+                if (card.getVisible()) {
+                    retorno = OptionMenu.MenuMoverCartaAEscaleraDesdeEscalera;
+                    repetir = false;
                 }
-            }
-            else if (lectura==1){
-                retorno=OptionMenu.MenuPrinicpal;
-                repetir =false;
-            }
-            else if (lectura==2){
-                if (!card.getVisible()){
+                break;
+            case 1:
+                if (card.getVisible()) {
+                    retorno = OptionMenu.MenuMoverCartaAPalosDesdeEscalera;
+                    repetir = false;
+                }
+                break;
+            case 2:
+                if (!card.getVisible()) {
                     card.setVisible(true);
                 }
+                break;                
+            case 3:
+                retorno = OptionMenu.MenuPrinicpal;
+                repetir = false;
+                break;    
+            case 4:
+                retorno= OptionMenu.Exit;
+                repetir=false;
+        }
+        } while (repetir);
+        return retorno;
+    }
+
+   
+    public OptionMenu controlMoverCartaAPalosDesdeEscalera() {
+        List<Card> origin = this.seleccionListaDeCartasOrigenDesdeEscalera();
+        Card card = this.cartaSeleccionadaDesdeEscalera();
+        return moverCartaAPaloDesdeEscaleraController.controlMoverCartaAPalos();
+    }
+    
+    public OptionMenu controlMoverCartaAPalosDesdeBaraja() {
+        List<Card> origin = this.seleccionListaDeCartasOrigenDesdeBaraja();
+        Card card = this.seleccionCartaAMoverDesdeBaraja();
+        return moverCartaAPaloDesdeBarajaController.controlMoverCartaAPalos();
+    }    
+    
+      
+    
+   
+    
+    private Card cartaSeleccionadaDesdeEscalera() {
+        Card card;
+
+        int posicionPila = tablero.getEscalera().getPilaCartaSeleccionada();
+        // obtengo la posicion de la carta
+        int posicionCarta = tablero.getEscalera().getEscaleras().get(posicionPila).getPilaCartas().size() - 1;
+        // carta seleccionada para mover de una escalera seleccionada
+        card = tablero.getEscalera().getEscaleras().get(posicionPila).getPilaCartas().get(posicionCarta);
+
+        return card;
+    }
+
+    private List<Card> seleccionListaDeCartasOrigenDesdeEscalera() {
+        List<Card> origin = null;
+        int posicionPila = tablero.getEscalera().getPilaCartaSeleccionada();
+        origin = tablero.getEscalera().getEscaleras().get(posicionPila).getPilaCartas();
+        
+        return origin;
+    }
+
+    
+    
+    private Card seleccionCartaAMoverDesdeBaraja() {
+        Card card;
+        // coge la carta del monton que esta mostrada
+        card = tablero.getBaraja().getCards().get(tablero.getBaraja().getPosCartaMostrada());
+        
+        return card;
+    }
+
+    private List<Card> seleccionListaDeCartasOrigenDesdeBaraja() {
+        List<Card> origin = null;
+        origin = tablero.getBaraja().getCards();
+        return origin;
+    }
+    
+    public void actualizarLaCartaAMostrarEnPalos (PilaFamiliaCartas pilaFamiliaCartas){
+        int indicePos = pilaFamiliaCartas.getPosCartaMostrada() + 1;
+        pilaFamiliaCartas.setPosCartaMostrada(indicePos);
+    }
+    
+    public  void actualizarLaCartaAMostrarEnBarja (){
+       if (this.tablero.getBaraja().getPosCartaMostrada()>=0){
+           int posicion=this.tablero.getBaraja().getPosCartaMostrada()-1;
+           tablero.getBaraja().setPosCartaMostrada(posicion);
+       }
+    }
+    
+    public void ponerEscaleraSeleccionada(Integer seleccionEscalera){
+        int posicionEscaleraSeleccionada = seleccionEscalera - 1;
+        if (tablero.getEscalera().getEscaleras().get(posicionEscaleraSeleccionada).size() > 0) {
+            tablero.getEscalera().setPilaCartaSeleccionada(posicionEscaleraSeleccionada);
+        }
+    }
+    
+    public boolean comprobarVisibleCartaEnBaraja(){
+        boolean retorno= false;
+        int pos = tablero.getBaraja().getPosCartaMostrada();
+        if (pos != -1) {
+            Card card = tablero.getBaraja().getCards().get(pos);
+            if (card.getVisible()) {
+                retorno = true;
             }
-            else if (lectura==3){
-                if (card.getVisible()){
-                    retorno=OptionMenu.MenuMoverCartaBaraja;
-                    repetir =false;
+        }
+        return retorno;
+    }
+    /*
+     * public OptionMenu controlMoverCartaAPalos(List<Card> origin, Card card) {
+        int lectura = -1;
+        boolean repetir = true;
+        OptionMenu retorno = OptionMenu.MenuPrinicpal;
+        do {
+            ios.showTablero(tablero);
+            lectura = ios.opcionesMenuMoverCartaAPalos();
+            if ((lectura >= 1) && (lectura < 5)) {
+                if (this.moverCartaController.moverCartaAPaloFamilia(origin, tablero.getPilasFamily().get(lectura).getCards(), card)) {
+                    this.actualizarLaCartaAMostrarEnPalos(tablero.getPilasFamily().get(lectura));
+                    this.actualizarLaCartaAMostrarEnBarja();
+                    repetir = false;
+                    retorno = OptionMenu.MenuPrinicpal;
+                    
                 }
+
+            } else{
+                repetir = false;
+                if (lectura == 5) 
+                       retorno = OptionMenu.MenuPrinicpal;
+                if (lectura== 6) 
+                        retorno = OptionMenu.Exit;
             }
-            
-        }while (repetir);
+        } while (repetir);
         return retorno;
     }
     
     
-    public  OptionMenu controlMoverCartaBaraja(Baraja baraja,List<PilaFamiliaCartas> pilasFamily, Escaleras escalera,IOS ios,List<Card> origin,  Card card){
-        int lectura=-1;
-        boolean repetir=true;
-        OptionMenu retorno=OptionMenu.MenuPrinicpal;
-        do{
-            ios.showTablero(baraja,pilasFamily, escalera);
-            lectura=ios.opcionesMenuMoverCartaABaraja();
-            if ((lectura >= 1)&&(lectura<5)) {
-                if (moverCartaBarja(origin,pilasFamily.get(lectura).getCards(),card)){
-                    repetir =false;
-                    retorno= OptionMenu.MenuPrinicpal;
-                    int indicePos=pilasFamily.get(lectura).getPosCartaMostrada()+1;
-                    pilasFamily.get(lectura).setPosCartaMostrada(indicePos);
-                    baraja.setPosCartaMostrada(-1);
-                }
-                
+    
+     public OptionMenu controlMoverCartaEscaleraDesdeBaraja() {
+        int lectura = -1;
+        boolean repetir = true;
+        OptionMenu retorno = OptionMenu.MenuPrinicpal;
+        do {
+            ios.showTablero(tablero);
+            lectura = ios.opcionesMenuMoverCartaEscalera();
+            if ((lectura >= 1) && (lectura < 8)) {
+                    int posicion = lectura - 1;
+                    List<Card> origin = this.seleccionListaDeCartasOrigenDesdeBaraja();
+                    Card card = this.seleccionCartaAMoverDesdeBaraja();
+                    List<Card> escaleraDestino=tablero.getEscalera().getEscaleras().get(posicion).getPilaCartas();
+                    if (this.moverCartaController.moverCartaAEscalera(origin,card, escaleraDestino)) {
+                        this.actualizarLaCartaAMostrarEnBarja();
+                        repetir = false;
+                        retorno = OptionMenu.MenuPrinicpal;
+                    }                 
+            } else {
+                repetir = false;
+                if (lectura == 8) 
+                       retorno = OptionMenu.MenuPrinicpal;
+                if (lectura== 9) 
+                        retorno = OptionMenu.Exit;
             }
-            else if (lectura==5){
-                repetir =false;
-                retorno= OptionMenu.MenuPrinicpal;
-            }
-        }while (repetir);
+        } while (repetir);
         return retorno;
     }
+
     
-    
-    public  boolean moverCartaBarja(List<Card> origin, List<Card> destin, Card card){
-        if (destin.size()==0){
-            if (NumbersCards.AS.equals(card.getNumbersCards())){
-                int index= origin.indexOf(card);
-                destin.add(card);
-                origin.remove(index);
-                return true;
-            }
-            else
-                return false;
-        }
-        else{
-            int positionCardPila=destin.size()-1;
-            if (comprobarMover(destin.get(positionCardPila),card)){
-                int index= origin.indexOf(card);
-                destin.add(card);
-                origin.remove(index);
-                return true;
-            }
-            else return false;
-        }
-    }
-    
-    public  boolean comprobarMover(Card cardPila, Card card){
-        boolean retorno=false;
-        if (cardPila.getFamilyCard()==card.getFamilyCard()){
-            if (cardPila.getColor()==card.getColor()){
-                int diferencia=cardPila.getNumbersCards().ordinal()-card.getNumbersCards().ordinal();
-                if(diferencia==1)
-                    retorno=true;
-            }
-        }
-        return retorno;
-    }
-    
-    public  OptionMenu controlMoverCarta(Baraja baraja,List<PilaFamiliaCartas> pilasFamily , Escaleras escalera, IOS ios, Card card,List<Card> origin,boolean esBaraja){
-        int lectura=-1;
-        boolean repetir=true;
-        OptionMenu retorno=OptionMenu.MenuPrinicpal;
-        do{
-            ios.showTablero(baraja,pilasFamily, escalera);
-            lectura=ios.opcionesMenuMoverCarta();
-            if ((lectura >= 0)&&(lectura<7)) {
-                if (esBaraja){
-                    if (escalera.getEscaleras().get(lectura).moverCartaApila(card)){
-                        repetir =false;
-                        int index= origin.indexOf(card);
-                        origin.remove(index);
-                        retorno= OptionMenu.MenuPrinicpal;
-                        baraja.setPosCartaMostrada(-1);
+    public OptionMenu controlMoverCartaEscaleraDesdeEscalera() {
+        int lectura = -1;
+        boolean repetir = true;
+
+        OptionMenu retorno = OptionMenu.MenuPrinicpal;
+        do {
+            ios.showTablero(tablero);
+            lectura = ios.opcionesMenuMoverCartaEscalera();
+            if ((lectura >= 1) && (lectura < 8)) {
+                int posicion = lectura - 1;
+                List<Card> origin = this.seleccionListaDeCartasOrigenDesdeEscalera();
+                List<Card> escaleraDestino=tablero.getEscalera().getEscaleras().get(posicion).getPilaCartas();
+                    if (this.moverCartaController.moverCartasVisiblesAEscalera(origin, escaleraDestino)) {
+                        repetir = false;
+                        retorno = OptionMenu.MenuPrinicpal;
                     }
-                }
-                else{
-                    if (escalera.getEscaleras().get(lectura).moverCartasVisiblesApila(origin)){
-                        repetir =false;
-                        retorno= OptionMenu.MenuPrinicpal;
-                    }
-                }
-                
+            } else {
+                repetir = false;
+                if (lectura == 8) 
+                       retorno = OptionMenu.MenuPrinicpal;
+                if (lectura== 9) 
+                        retorno = OptionMenu.Exit;
             }
-            else if (lectura==7){
-                repetir =false;
-                retorno= OptionMenu.MenuPrinicpal;
-            }
-        }while (repetir);
+        } while (repetir);
         return retorno;
     }
-
-
-
-
-
-
-
+    
+    
+    
+    
+     */
+    
 }

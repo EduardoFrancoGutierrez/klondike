@@ -9,31 +9,24 @@ public class Tablero {
 
     private Baraja baraja;
     
-    private Escaleras escalera;
+    private Escaleras escaleras;
     
     private List<PilaFamiliaCartas> pilasFamily;
-
-
 
     
     public Tablero() {
         this.baraja = new Baraja();
-        this.escalera =  new Escaleras();;
+        this.escaleras =  new Escaleras();;
         this.pilasFamily = inicializacionPilasFamily();
     }
 
-
-
-    private  List<PilaFamiliaCartas> inicializacionPilasFamily(){
-        List<PilaFamiliaCartas> pilasFamilys = new ArrayList<PilaFamiliaCartas> ();
-        for (int i=0; i<NUMBER_FAMILY;i++){
-            PilaFamiliaCartas pilasFamily = new PilaFamiliaCartas();
-            pilasFamilys.add(pilasFamily);
-        }
-        return pilasFamilys;
-    }
-
-
+    
+    
+   public void construccionDelTableroInicial(){
+       this.baraja.construir();
+       this.baraja.mezclar();
+       this.escaleras.repartoCartasInicial(this.baraja);
+   }
     
    public Baraja getBaraja() {
         return baraja;
@@ -44,11 +37,11 @@ public class Tablero {
     }
 
     public Escaleras getEscalera() {
-        return escalera;
+        return escaleras;
     }
 
     public void setEscalera(Escaleras escalera) {
-        this.escalera = escalera;
+        this.escaleras = escalera;
     }
 
     public List<PilaFamiliaCartas> getPilasFamily() {
@@ -60,7 +53,14 @@ public class Tablero {
     }
     
     
-    
+    private  List<PilaFamiliaCartas> inicializacionPilasFamily(){
+        List<PilaFamiliaCartas> pilasFamilys = new ArrayList<PilaFamiliaCartas> ();
+        for (int i=0; i<NUMBER_FAMILY;i++){
+            PilaFamiliaCartas pilasFamily = new PilaFamiliaCartas();
+            pilasFamilys.add(pilasFamily);
+        }
+        return pilasFamilys;
+    }
     
     
 }

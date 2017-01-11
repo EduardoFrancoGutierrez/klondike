@@ -19,7 +19,7 @@ public class Escaleras {
         }
     }
 // funcion que coge de la baraja mezclada y reparte las cartas a las  7 escaleras
-    public void componerTableroInicial(Baraja baraja) {
+    public void repartoCartasInicial(Baraja baraja) {
         for (int i = 0; i < NUM_COLUMNAS; i++) {
             PilaCartas pilaCarta = this.escaleras.get(i);
             for (int j = 0; j <= i; j++) {
@@ -38,17 +38,6 @@ public class Escaleras {
         this.escaleras = escaleras;
     }
 
-    public boolean moverCardOtraPila(Integer pilaOrigen, Integer pilaDestino) {
-        boolean retorno = false;
-        if (this.escaleras.get(pilaOrigen).size() < 1)
-            retorno = false;
-        else {
-            int position = this.escaleras.get(pilaOrigen).size() - 1;
-            Card card = this.escaleras.get(pilaOrigen).getPilaCartas().get(position);
-            retorno = this.escaleras.get(pilaDestino).moverCartaApila(card);
-        }
-        return retorno;
-    }
 
     public int getPilaCartaSeleccionada() {
         return pilaCartaSeleccionada;
@@ -57,5 +46,18 @@ public class Escaleras {
     public void setPilaCartaSeleccionada(int pilaCartaSeleccionada) {
         this.pilaCartaSeleccionada = pilaCartaSeleccionada;
     }
+    
+    
+    /* public boolean moverCardOtraPila(Integer pilaOrigen, Integer pilaDestino) {
+    boolean retorno = false;
+    if (this.escaleras.get(pilaOrigen).size() < 1)
+        retorno = false;
+    else {
+        int position = this.escaleras.get(pilaOrigen).size() - 1;
+        Card card = this.escaleras.get(pilaOrigen).getPilaCartas().get(position);
+        retorno = this.escaleras.get(pilaDestino).moverCartaApila(card);
+    }
+    return retorno;
+}*/
     
 }

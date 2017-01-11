@@ -3,8 +3,10 @@ package klondike;
 public enum OptionMenu {
     MenuPrinicpal,
     MenuBaraja,
-    MenuListaPilas,
-    MenuMoverCarta,
-    MenuMoverCartaBaraja,
+    MenuEscaleras,
+    MenuMoverCartaAEscaleraDesdeEscalera,
+    MenuMoverCartaAEscaleraDesdeBaraja,
+    MenuMoverCartaAPalosDesdeBaraja,
+    MenuMoverCartaAPalosDesdeEscalera,
     Exit;
 }

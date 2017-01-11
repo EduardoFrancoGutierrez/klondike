@@ -8,15 +8,14 @@ import java.util.List;
 public class IOS {
 
    
-    public void showTablero(Baraja baraja, List<PilaFamiliaCartas> pilasFamily, Escaleras escalera){
+    public void showTablero(Tablero tablero){
 
         System.out.println();
         System.out.println("************************** TABLERO *****************************");
-            this.mostrarBarajas(baraja,pilasFamily );
-            this.mostrarEscalera(escalera);
+            this.mostrarBrajayPalos(tablero.getBaraja(),tablero.getPilasFamily());
+            this.mostrarEscalera(tablero.getEscalera());
             System.out.println("*****************************************************************");
             System.out.println();
-          //  lectura=this.showMenu();
            
     }
 
@@ -24,14 +23,14 @@ public class IOS {
        int lectura;
        do{
         System.out.println("Elige la operacion:");
-        System.out.println("0. Sacar carta de la baraja");
-        System.out.println("1. Seleccionar 1º pila de cartas");
-        System.out.println("2. Seleccionar 2º pila de cartas");
-        System.out.println("3. Seleccionar 3º pila de cartas");
-        System.out.println("4. Seleccionar 4º pila de cartas");
-        System.out.println("5. Seleccionar 5º pila de cartas");
-        System.out.println("6. Seleccionar 6º pila de cartas");
-        System.out.println("7. Seleccionar 7º pila de cartas");
+        System.out.println("0. Seleccionar baraja");
+        System.out.println("1. Seleccionar 1º escalera");
+        System.out.println("2. Seleccionar 2º escalera");
+        System.out.println("3. Seleccionar 3º escalera");
+        System.out.println("4. Seleccionar 4º escalera");
+        System.out.println("5. Seleccionar 5º escalera");
+        System.out.println("6. Seleccionar 6º escalera");
+        System.out.println("7. Seleccionar 7º escalera");
         System.out.println("8. Exit");
         lectura=this.leer();
        } while (lectura ==-1);
@@ -66,7 +65,7 @@ public class IOS {
     
     public void mostrarEscalera (Escaleras escalera){
         for (int j=1; j<Escaleras.NUM_COLUMNAS+1;j++){
-            System.out.print(String.format("%1$-25s",j+".LIST"));
+            System.out.print(String.format("%1$-25s",j+".ESCALERA"));
         }
         System.out.println();
         for (int i=0; i< Escaleras.MAX_NUM_FILAS; i++) {
@@ -81,14 +80,14 @@ public class IOS {
             System.out.println();
         }
     }
-    public void mostrarBarajas(Baraja baraja,List<PilaFamiliaCartas> pilasFamily){
+    public void mostrarBrajayPalos(Baraja baraja,List<PilaFamiliaCartas> pilasFamily){
         
         int poscionMostrar=0;
         if (baraja.getPosCartaMostrada()!=-1)
             poscionMostrar=baraja.getPosCartaMostrada();
         System.out.print(String.format("%1$-25s",0+".BARAJA"));
         for (int i=0; i<pilasFamily.size();i++){
-            System.out.print(String.format("%1$-25s",i+1 +".BARAJA"));
+            System.out.print(String.format("%1$-25s",i+1 +".PALO"));
         }
         System.out.println();
         System.out.print(String.format("%1$-25s",baraja.getCards().get(poscionMostrar).toString()));
@@ -109,9 +108,9 @@ public class IOS {
         do{
          System.out.println("Elige la operacion:");
          System.out.println("0. Sacar la carta siguiente de la baraja");
-         System.out.println("1. Mover la carta a una pila");
-         System.out.println("2. Salir al menu principal");
-         System.out.println("3. Mover la carta a una baraja");
+         System.out.println("1. Mover la carta a una escalera");
+         System.out.println("2. Mover la carta a un palo");
+         System.out.println("3. Salir al menu principal");
          System.out.println("4. Exit");
          lectura=this.leer();
         } while (lectura ==-1);
@@ -119,14 +118,14 @@ public class IOS {
         
     }
     
-    public int opcionesMenuListaPila(){
+    public int opcionesMenuEscalera(){
         int lectura;
         do{
          System.out.println("Elige la operacion:");
-         System.out.println("0. Mover la carta a una pila");
-         System.out.println("1. Salir al menu principal");
+         System.out.println("0. Mover la carta a una escalera");
+         System.out.println("1. Mover la carta a un palo");
          System.out.println("2. Dar la vuelta a la carta oculta");
-         System.out.println("3. Mover la carta a una baraja");
+         System.out.println("3. Salir al menu principal");
          System.out.println("4. Exit");
          lectura=this.leer();
         } while (lectura ==-1);
@@ -134,33 +133,33 @@ public class IOS {
         
     }
     
-    public int opcionesMenuMoverCarta(){
+    public int opcionesMenuMoverCartaEscalera(){
         int lectura;
         do{
          System.out.println("Elige la operacion:");
-         System.out.println("0. Mover la carta a la 1º pila de cartas");
-         System.out.println("1. Mover la carta a la 2º pila de cartas");
-         System.out.println("2. Mover la carta a la 3º pila de cartas");
-         System.out.println("3. Mover la carta a la 4º pila de cartas");
-         System.out.println("4. Mover la carta a la 5º pila de cartas");
-         System.out.println("5. Mover la carta a la 6º pila de cartas");
-         System.out.println("6. Mover la carta a la 7º pila de cartas");
-         System.out.println("7. Salir al menu principal");
-         System.out.println("8. Exit");
+         System.out.println("1. Mover la carta a la 1º escalera");
+         System.out.println("2. Mover la carta a la 2º escalera");
+         System.out.println("3. Mover la carta a la 3º escalera");
+         System.out.println("4. Mover la carta a la 4º escalera");
+         System.out.println("5. Mover la carta a la 5º escalera");
+         System.out.println("6. Mover la carta a la 6º escalera");
+         System.out.println("7. Mover la carta a la 7º escalera");
+         System.out.println("8. Salir al menu principal");
+         System.out.println("9. Exit");
          lectura=this.leer();
         } while (lectura ==-1);
         return lectura;
         
     }
 
-    public int opcionesMenuMoverCartaABaraja(){
+    public int opcionesMenuMoverCartaAPalos(){
         int lectura;
         do{
          System.out.println("Elige la operacion:");
-         System.out.println("1. Mover la carta a la 1º baraja de cartas");
-         System.out.println("2. Mover la carta a la 2º baraja de cartas");
-         System.out.println("3. Mover la carta a la 3º baraja de cartas");
-         System.out.println("4. Mover la carta a la 4º baraja de cartas");
+         System.out.println("1. Mover la carta a la 1º palo de cartas");
+         System.out.println("2. Mover la carta a la 2º palo de cartas");
+         System.out.println("3. Mover la carta a la 3º palo de cartas");
+         System.out.println("4. Mover la carta a la 4º palo de cartas");
          System.out.println("5. Salir al menu principal");
          System.out.println("6. Exit");
          lectura=this.leer();
