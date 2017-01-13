@@ -5,11 +5,11 @@ package klondike;
 public class GameM {
 
     public static void main (String[] argv){
-        Tablero tablero= new Tablero();
-        tablero.construccionDelTableroInicial();
+        Board board= new Board();
+        board.boardConstructionInitial();
         IOS ios = new IOS ();
-        PlayController playcontrol= new PlayController(tablero,ios);
-        playcontrol.controlDeGestionDeMenus();
+        PlayController playcontrol= new PlayController(board,ios);
+        playcontrol.controlOfConductOfMenus();
 
     }
       
