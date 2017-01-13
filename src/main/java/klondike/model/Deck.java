@@ -1,4 +1,4 @@
-package klondike;
+package klondike.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

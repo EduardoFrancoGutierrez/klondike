@@ -1,4 +1,4 @@
-package klondike;
+package klondike.model;
 
 public enum OptionMenu {
     MainMenu,

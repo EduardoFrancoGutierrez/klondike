@@ -1,7 +1,10 @@
-package klondike;
+package klondike.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import klondike.model.Card;
+import klondike.model.NumbersCards;
 
 public class ActionMoveCardController {
 

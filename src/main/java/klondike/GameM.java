@@ -1,5 +1,9 @@
 package klondike;
 
+import klondike.controller.PlayController;
+import klondike.model.Board;
+import klondike.view.IOS;
+
 
 
 public class GameM {

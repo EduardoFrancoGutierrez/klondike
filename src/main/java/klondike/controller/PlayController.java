@@ -1,4 +1,11 @@
-package klondike;
+package klondike.controller;
+
+import klondike.model.Board;
+import klondike.model.Card;
+import klondike.model.NumbersCards;
+import klondike.model.OptionMenu;
+import klondike.model.StackFamilyCards;
+import klondike.view.IOS;
 
 public class PlayController {
 

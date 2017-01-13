@@ -1,9 +1,15 @@
-package klondike;
+package klondike.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+
+import klondike.model.Board;
+import klondike.model.Deck;
+import klondike.model.Ladders;
+import klondike.model.StackCards;
+import klondike.model.StackFamilyCards;
 
 public class IOS {
 

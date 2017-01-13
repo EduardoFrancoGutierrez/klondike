@@ -1,4 +1,5 @@
-package klondike;
+package klondike.model;
+
 
 public class Card {
 

@@ -1,6 +1,12 @@
-package klondike;
+package klondike.controller;
 
 import java.util.List;
+
+import klondike.model.Board;
+import klondike.model.Card;
+import klondike.model.OptionMenu;
+import klondike.model.StackFamilyCards;
+import klondike.view.IOS;
 
 public abstract class MoverCardController {
     private Board board;
