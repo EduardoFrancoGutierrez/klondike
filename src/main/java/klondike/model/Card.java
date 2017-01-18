@@ -1,21 +1,22 @@
 package klondike.model;
 
-
 public class Card {
+
+    private static final String HIDDEN_CARD = "HiddenCard";
 
     private FamilyCards familyCard;
 
     private NumbersCards numbersCards;
 
     private Color color;
-    
+
     private boolean visible;
-    
-    public Card (FamilyCards familyCard,NumbersCards numbersCards){
-        this.visible=false;
-        this.familyCard=familyCard;
-        this.numbersCards=numbersCards;
-        this.color=assignColor (familyCard);
+
+    public Card(FamilyCards familyCard, NumbersCards numbersCards) {
+        this.visible = false;
+        this.familyCard = familyCard;
+        this.numbersCards = numbersCards;
+        this.color = assignColor(familyCard);
     }
 
     public FamilyCards getFamilyCard() {
@@ -49,29 +50,24 @@ public class Card {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
-    
-    private Color assignColor (FamilyCards familyCard){
+
+    private Color assignColor(FamilyCards familyCard) {
         Color color;
-        if ((FamilyCards.Hearts.equals(familyCard))||(FamilyCards.Diamonds.equals(familyCard)))
-            color=Color.Red;
+        if ((FamilyCards.Hearts.equals(familyCard)) || (FamilyCards.Diamonds.equals(familyCard)))
+            color = Color.Red;
         else
-            color=Color.Black;
+            color = Color.Black;
         return color;
     }
-    
+
     @Override
     public String toString() {
         String returnToString;
         if (!this.visible)
-            returnToString="HiddenCard";
-        else 
-            returnToString= this.numbersCards+"_"+this.familyCard+"_"+this.color;
+            returnToString = HIDDEN_CARD;
+        else
+            returnToString = this.numbersCards + "_" + this.familyCard + "_" + this.color;
         return returnToString;
     }
-    
-    
-    
-    
-    
-    
+
 }

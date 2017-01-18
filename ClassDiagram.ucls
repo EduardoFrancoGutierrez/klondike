@@ -10,12 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <package id="2" language="java" name="klondike.controller" project="klondike" 
-    file="/klondike/src/main/java/klondike/controller" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="52" width="153" x="124" y="42"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="3" language="java" name="klondike.controller.ActionMoveCardController" project="klondike" 
+  <class id="2" language="java" name="klondike.controller.ActionMoveCardController" project="klondike" 
     file="/klondike/src/main/java/klondike/controller/ActionMoveCardController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="191" width="405" x="2189" y="399"/>    
@@ -25,7 +20,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="klondike.model.Deck" project="klondike" 
+  <class id="3" language="java" name="klondike.model.Deck" project="klondike" 
     file="/klondike/src/main/java/klondike/model/Deck.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="281" width="270" x="710" y="756"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -34,7 +29,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="5" language="java" name="klondike.model.FamilyCards" project="klondike" 
+  <enumeration id="4" language="java" name="klondike.model.FamilyCards" project="klondike" 
     file="/klondike/src/main/java/klondike/model/FamilyCards.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="155" width="157" x="1020" y="1575"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -43,7 +38,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="6" language="java" name="klondike.controller.PlayController" project="klondike" 
+  <class id="5" language="java" name="klondike.controller.PlayController" project="klondike" 
     file="/klondike/src/main/java/klondike/controller/PlayController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="209" width="216" x="1313" y="42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -52,7 +47,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="klondike.GameM" project="klondike" 
+  <class id="6" language="java" name="klondike.GameM" project="klondike" 
     file="/klondike/src/main/java/klondike/GameM.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="101" width="125" x="317" y="42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -61,7 +56,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="8" language="java" name="klondike.model.NumbersCards" project="klondike" 
+  <enumeration id="7" language="java" name="klondike.model.NumbersCards" project="klondike" 
     file="/klondike/src/main/java/klondike/model/NumbersCards.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="317" width="150" x="1217" y="1575"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -70,7 +65,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="9" language="java" name="klondike.controller.MoveCardFromDeckController" project="klondike" 
+  <class id="8" language="java" name="klondike.controller.MoveCardFromDeckController" project="klondike" 
     file="/klondike/src/main/java/klondike/controller/MoveCardFromDeckController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="191" width="352" x="1797" y="399"/>    
@@ -80,7 +75,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="klondike.model.Ladders" project="klondike" 
+  <class id="9" language="java" name="klondike.model.Ladders" project="klondike" 
     file="/klondike/src/main/java/klondike/model/Ladders.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="227" width="217" x="1020" y="756"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -89,7 +84,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="11" language="java" name="klondike.model.OptionMenu" project="klondike" 
+  <enumeration id="10" language="java" name="klondike.model.OptionMenu" project="klondike" 
     file="/klondike/src/main/java/klondike/model/OptionMenu.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="227" width="309" x="482" y="42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -98,7 +93,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="12" language="java" name="klondike.model.StackFamilyCards" project="klondike" 
+  <class id="11" language="java" name="klondike.model.StackFamilyCards" project="klondike" 
     file="/klondike/src/main/java/klondike/model/StackFamilyCards.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="173" width="169" x="1277" y="756"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -107,7 +102,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="klondike.controller.MoverCardController" project="klondike" 
+  <class id="12" language="java" name="klondike.controller.MoverCardController" project="klondike" 
     file="/klondike/src/main/java/klondike/controller/MoverCardController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="317" width="378" x="1569" y="42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -116,7 +111,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="klondike.model.Board" project="klondike" 
+  <class id="13" language="java" name="klondike.model.Board" project="klondike" 
     file="/klondike/src/main/java/klondike/model/Board.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="245" width="345" x="1020" y="399"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -125,17 +120,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="15" language="java" name="klondike.view" project="klondike" file="/klondike/src/main/java/klondike/view" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="52" width="118" x="831" y="42"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="16" language="java" name="klondike" project="klondike" file="/klondike/src/main/java/klondike" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="52" width="115" x="989" y="42"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="17" language="java" name="klondike.model.Card" project="klondike" 
+  <class id="14" language="java" name="klondike.model.Card" project="klondike" 
     file="/klondike/src/main/java/klondike/model/Card.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="281" width="242" x="1020" y="1254"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -144,12 +129,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="18" language="java" name="klondike.model" project="klondike" 
-    file="/klondike/src/main/java/klondike/model" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="52" width="129" x="1144" y="42"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="19" language="java" name="klondike.controller.MoveCardFromLadderController" project="klondike" 
+  <class id="15" language="java" name="klondike.controller.MoveCardFromLadderController" project="klondike" 
     file="/klondike/src/main/java/klondike/controller/MoveCardFromLadderController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="173" width="352" x="1405" y="399"/>    
@@ -159,7 +139,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="klondike.model.StackCards" project="klondike" 
+  <class id="16" language="java" name="klondike.model.StackCards" project="klondike" 
     file="/klondike/src/main/java/klondike/model/StackCards.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="137" width="199" x="1020" y="1077"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -168,7 +148,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="klondike.view.IOS" project="klondike" 
+  <class id="17" language="java" name="klondike.view.IOS" project="klondike" 
     file="/klondike/src/main/java/klondike/view/IOS.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="317" width="377" x="603" y="399"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -177,150 +157,218 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="22">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="23" name="satckCards"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="26">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="27" name="moveCardFromDeckController"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="30" name="board"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="board"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="36" name="familyCard"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="39" name="actionMoveCardController"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="42" name="color"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="44">    
+  <association id="18">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="45" name="deck"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
+      <attribute id="19" name="familyCard">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="48" name="ladders"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
+  <association id="21">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="22" name="board">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="13"/>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
   </generalization>  
-  <association id="51">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="52" name="moveCardFromLadderController"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
+  <association id="25">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="26" name="ios">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="55" name="numbersCards"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+  <association id="28">    
+    <bendpoint x="874" y="1077"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="29" name="cards">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="32" name="numbersCards">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="35" name="moveCardFromDeckController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="57">    
-    <bendpoint x="874" y="1077"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="58" name="cards"/>      
-      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="61" name="ios"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <bendpoint x="1249" y="1077"/>    
+  <association id="37">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="64" name="cards"/>      
-      <multiplicity id="65" minimum="0" maximum="2147483647"/>    
+      <attribute id="38" name="actionMoveCardController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="41" name="color">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="44" name="ladders">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <bendpoint x="1249" y="1077"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="47" name="cards">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="50" name="ladders">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="53" name="ios">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="66">    
+  <generalization id="55">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="56">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="67" name="ios"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
+      <attribute id="57" name="stackFamilyCards">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="69">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="70" name="ladders"/>      
-      <multiplicity id="71" minimum="0" maximum="2147483647"/>    
+  <association id="59">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="60" name="deck">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="61" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="72">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="73" name="stackFamilyCards"/>      
-      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
+  <association id="62">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="63" name="moveCardFromLadderController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="66" name="satckCards">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="67" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="69" name="board">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="70" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

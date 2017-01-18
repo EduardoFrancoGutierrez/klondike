@@ -17,12 +17,9 @@ public class StackCards {
     public void setSatckCards(List<Card> satckCards) {
         this.satckCards = satckCards;
     }
-    
-    public int size (){
+
+    public int size() {
         return this.satckCards.size();
     }
-
-    
- 
 
 }

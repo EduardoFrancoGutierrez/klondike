@@ -9,6 +9,14 @@ import klondike.view.IOS;
 
 public class PlayController {
 
+    private static final int INITIAL_VALUE_READ_IOS = -1;
+
+    private static final int POSITION_INVALID_CARD_SHOW = -1;
+
+    private static final int STAIR_LADDER_SIZE = 0;
+
+    private static final int POSITION_CARD_SHOW = 0;
+
     private Board board;
 
     private IOS ios;
@@ -25,14 +33,13 @@ public class PlayController {
         this.moveCardFromLadderController = new MoveCardFromLadderController(board, ios);
     }
 
-    public int controlOfConductOfMenus() {
-        int readIOS = -1;
+    public void controlOfConductOfMenus() {
         boolean repeat = true;
         OptionMenu menu = OptionMenu.MainMenu;
         do {
-            if(this.checkFinishPlay()){
+            if (this.checkFinishPlay()) {
                 this.ios.ShowFinishPlay();
-               menu=OptionMenu.Exit;
+                menu = OptionMenu.Exit;
             }
             switch (menu) {
             case MainMenu:
@@ -58,17 +65,15 @@ public class PlayController {
                 break;
             case Exit:
                 repeat = false;
-                System.exit(0);
                 break;
 
             }
 
         } while (repeat);
-        return readIOS;
     }
 
     public OptionMenu ControlMainMenu() {
-        int readIOS = -1;
+        int readIOS = INITIAL_VALUE_READ_IOS;
         boolean repeat = true;
         OptionMenu testControlMainMenu = OptionMenu.MainMenu;
         do {
@@ -90,7 +95,7 @@ public class PlayController {
     }
 
     public OptionMenu controlDeck() {
-        int readIOS = -1;
+        int readIOS = INITIAL_VALUE_READ_IOS;
         boolean testControlDeck = true;
         OptionMenu retorno = OptionMenu.MainMenu;
         do {
@@ -103,7 +108,7 @@ public class PlayController {
                 }
                 break;
             case 1:
-                if ((board.getDeck().size() > 0) && (board.getDeck().getPosCardShow() >= 0)) {
+                if ((board.getDeck().size() > 0) && (board.getDeck().getPosCardShow() >= POSITION_CARD_SHOW)) {
                     retorno = OptionMenu.MoveLetterToStairFromDeckMenu;
                     testControlDeck = false;
                 }
@@ -128,7 +133,7 @@ public class PlayController {
     }
 
     public OptionMenu controlLadder() {
-        int readIOS = -1;
+        int readIOS = INITIAL_VALUE_READ_IOS;
         boolean repeat = true;
         OptionMenu testControlLadder = OptionMenu.MainMenu;
         do {
@@ -167,7 +172,7 @@ public class PlayController {
 
     public void putSelecctionLadder(Integer selectionLadder) {
         int positionSelecctionLadder = selectionLadder - 1;
-        if (board.getLadders().getLadders().get(positionSelecctionLadder).size() > 0) {
+        if (board.getLadders().getStairsLadder().get(positionSelecctionLadder).size() > STAIR_LADDER_SIZE) {
             board.getLadders().setCardLadderSelected(positionSelecctionLadder);
         }
     }
@@ -175,7 +180,7 @@ public class PlayController {
     public boolean checkVisibleCardInDeck() {
         boolean testCheckVisibleCardInDeck = false;
         int pos = board.getDeck().getPosCardShow();
-        if (pos != -1) {
+        if (pos != POSITION_INVALID_CARD_SHOW) {
             Card card = board.getDeck().getCards().get(pos);
             if (card.getVisible()) {
                 testCheckVisibleCardInDeck = true;
@@ -183,17 +188,17 @@ public class PlayController {
         }
         return testCheckVisibleCardInDeck;
     }
-    
-    public boolean checkFinishPlay(){
-        boolean testCheckFinishPlay=false;
-        int numberCompleteStackFamilyCard=0;
-        for (StackFamilyCards stack:this.board.getStackFamilyCards()){
-            if (stack.getCards().size()==NumbersCards.values().length){
+
+    public boolean checkFinishPlay() {
+        boolean testCheckFinishPlay = false;
+        int numberCompleteStackFamilyCard = 0;
+        for (StackFamilyCards stack : this.board.getStackFamilyCards()) {
+            if (stack.getCards().size() == NumbersCards.values().length) {
                 numberCompleteStackFamilyCard++;
             }
         }
-        if (numberCompleteStackFamilyCard==this.board.getStackFamilyCards().size())
-            testCheckFinishPlay=true;
+        if (numberCompleteStackFamilyCard == this.board.getStackFamilyCards().size())
+            testCheckFinishPlay = true;
         return testCheckFinishPlay;
     }
 

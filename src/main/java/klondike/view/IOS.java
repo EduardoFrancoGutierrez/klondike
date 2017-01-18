@@ -13,6 +13,12 @@ import klondike.model.StackFamilyCards;
 
 public class IOS {
 
+    private static final int EMPTY_STACK_CARD_SIZE = 0;
+
+    private static final int NOT_INTEGER = -1;
+
+    private static final int POSITION_CARD_SHOW_INITIAL = -1;
+
     public void showTablero(Board board) {
 
         System.out.println();
@@ -40,7 +46,7 @@ public class IOS {
             System.out.println("7. Seleccionar 7º escalera");
             System.out.println("8. Exit");
             readIOS = this.read();
-        } while (readIOS == -1);
+        } while (readIOS == NOT_INTEGER);
         return readIOS;
     }
 
@@ -56,7 +62,7 @@ public class IOS {
         if (this.isInteger(number))
             returnRead = Integer.parseInt(number);
         else
-            returnRead = -1;
+            returnRead = NOT_INTEGER;
         return returnRead;
     }
 
@@ -78,7 +84,7 @@ public class IOS {
         System.out.println();
         for (int i = 0; i < Ladders.MAX_NUM_ROW; i++) {
             for (int j = 0; j < Ladders.NUM_COLUMN; j++) {
-                StackCards stackCard = ladder.getLadders().get(j);
+                StackCards stackCard = ladder.getStairsLadder().get(j);
                 if (i < stackCard.size()) {
                     System.out.print(String.format("%1$-25s", stackCard.getSatckCards().get(i).toString()));
                 } else
@@ -98,7 +104,7 @@ public class IOS {
 
     public void showContentDeck(Deck deck) {
         int positionShow = 0;
-        if (deck.getPosCardShow() != -1) {
+        if (deck.getPosCardShow() != POSITION_CARD_SHOW_INITIAL) {
             positionShow = deck.getPosCardShow();
         }
         if (deck.size() > 0) {
@@ -111,9 +117,9 @@ public class IOS {
     public void showContentStackFamilyCard(List<StackFamilyCards> stacksFamily) {
         for (StackFamilyCards stack : stacksFamily) {
             int positionShow = 0;
-            if (stack.getPosShowCard() != -1)
+            if (stack.getPosShowCard() != POSITION_CARD_SHOW_INITIAL)
                 positionShow = stack.getPosShowCard();
-            if ((stack.getCards() != null) && (stack.getCards().size() > 0))
+            if ((stack.getCards() != null) && (stack.getCards().size() > EMPTY_STACK_CARD_SIZE))
                 System.out.print(String.format("%1$-25s", stack.getCards().get(positionShow).toString()));
             else {
                 System.out.print(String.format("%1$-25s", " "));
@@ -134,7 +140,7 @@ public class IOS {
             System.out.println("3. Salir al menu principal");
             System.out.println("4. Exit");
             readIOS = this.read();
-        } while (readIOS == -1);
+        } while (readIOS == NOT_INTEGER);
         return readIOS;
 
     }
@@ -149,7 +155,7 @@ public class IOS {
             System.out.println("3. Salir al menu principal");
             System.out.println("4. Exit");
             readIOS = this.read();
-        } while (readIOS == -1);
+        } while (readIOS == NOT_INTEGER);
         return readIOS;
 
     }
@@ -168,7 +174,7 @@ public class IOS {
             System.out.println("8. Salir al menu principal");
             System.out.println("9. Exit");
             readIOS = this.read();
-        } while (readIOS == -1);
+        } while (readIOS == NOT_INTEGER);
         return readIOS;
 
     }
@@ -184,11 +190,12 @@ public class IOS {
             System.out.println("5. Salir al menu principal");
             System.out.println("6. Exit");
             readIOS = this.read();
-        } while (readIOS == -1);
+        } while (readIOS == NOT_INTEGER);
         return readIOS;
 
     }
-    public void ShowFinishPlay(){
+
+    public void ShowFinishPlay() {
         System.out.println("");
         System.out.println("");
         System.out.println("");

@@ -6,13 +6,17 @@ import java.util.List;
 import java.util.Random;
 
 public class Deck {
+    private static final int NOT_EMPTY_DECK = 1;
+
+    private static final int POSITION_CARD_SHOW_INITIAL = -1;
+
     private List<Card> cards;
 
     private int posCardShow;
 
     public Deck() {
         this.cards = new ArrayList<Card>();
-        this.posCardShow = -1;
+        this.posCardShow = POSITION_CARD_SHOW_INITIAL;
 
     }
 
@@ -30,7 +34,6 @@ public class Deck {
         long seed = System.nanoTime();
         Collections.shuffle(this.cards, new Random(seed));
     }
-
 
     public List<Card> getCards() {
         return cards;
@@ -52,8 +55,8 @@ public class Deck {
 
     public boolean showNextCard() {
         boolean isShowNextCard = false;
-        if (this.size() < 1) {
-            this.posCardShow = -1;
+        if (this.size() < NOT_EMPTY_DECK) {
+            this.posCardShow = POSITION_CARD_SHOW_INITIAL;
             return isShowNextCard;
         } else {
             int posCardNextShow = this.posCardShow + 1;
@@ -75,7 +78,7 @@ public class Deck {
         for (Card card : this.cards) {
             card.setVisible(false);
         }
-        this.posCardShow = -1;
+        this.posCardShow = POSITION_CARD_SHOW_INITIAL;
     }
 
     public int getPosCardShow() {

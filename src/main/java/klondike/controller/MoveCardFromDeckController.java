@@ -9,24 +9,24 @@ import klondike.view.IOS;
 
 public class MoveCardFromDeckController extends MoverCardController {
 
+    private static final int POSITION_CARD_INITIAL = 0;
+
     public MoveCardFromDeckController(Board board, IOS ios) {
         super(board, ios);
     }
 
     @Override
     public void updateCardsToShow(StackFamilyCards stackFamilyCards) {
-       this.updateCardToShowInStackFamilyCards (stackFamilyCards);
-       this.updateCardToShowInDeck();
-        
+        this.updateCardToShowInStackFamilyCards(stackFamilyCards);
+        this.updateCardToShowInDeck();
+
     }
-    
-    
-    
-    public  void updateCardToShowInDeck (){
-       if (this.getBoard().getDeck().getPosCardShow()>=0){
-           int position=this.getBoard().getDeck().getPosCardShow()-1;
-           getBoard().getDeck().sePosCardShow(position);
-       }
+
+    public void updateCardToShowInDeck() {
+        if (this.getBoard().getDeck().getPosCardShow() >= POSITION_CARD_INITIAL) {
+            int position = this.getBoard().getDeck().getPosCardShow() - 1;
+            getBoard().getDeck().sePosCardShow(position);
+        }
     }
 
     @Override
@@ -36,10 +36,9 @@ public class MoveCardFromDeckController extends MoverCardController {
         return origin;
     }
 
-   
     @Override
     public Boolean moveCardsToLadder(List<Card> origin, List<Card> destin, Card card) {
-        boolean returnMoveCardsToLadder = this.getMoveCardController().moveCardToLadder(origin,card, destin);
+        boolean returnMoveCardsToLadder = this.getMoveCardController().moveCardToLadder(origin, card, destin);
         if (returnMoveCardsToLadder)
             this.updateCardToShowInDeck();
         return returnMoveCardsToLadder;
@@ -53,7 +52,7 @@ public class MoveCardFromDeckController extends MoverCardController {
     }
 
     @Override
-    public Card selecctionCardToMove() {        
+    public Card selecctionCardToMove() {
         return this.selectionCardToMoveToLadder();
     }
 
